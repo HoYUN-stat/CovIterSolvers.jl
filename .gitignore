@@ -1,0 +1,7 @@
+.DS_Store
+.vscode/
+
+# Julia temporary files
+*.log
+build/
+Manifest.toml
