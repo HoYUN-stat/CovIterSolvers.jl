@@ -22,7 +22,7 @@ It can be installed directly from GitHub:
 
 ```julia
 import Pkg
-Pkg.add(url="[https://github.com/HoYUN-stat/CovIterSolvers.jl.git](https://github.com/HoYUN-stat/CovIterSolvers.jl.git)")
+Pkg.add(url="https://github.com/HoYUN-stat/CovIterSolvers.jl")
 ```
 ## Reference
 If you use this package, please cite the paper: 
