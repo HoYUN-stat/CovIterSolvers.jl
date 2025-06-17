@@ -68,6 +68,7 @@ println("Sample data generated with $(sum(BS)) total observations.")
 ```julia
 order = 4   # Cubic B-splines
 m = 10      # Number of internal knots
+p = m + order - 2
 knots = range(0, 1; length=m)
 myspline = BSplineMethod(order, knots)
 ```
@@ -76,8 +77,9 @@ myspline = BSplineMethod(order, knots)
 ```julia
 Φ = mean_fwd(loc, myspline)
 Φ2 = CovFwdTensor(Φ)
-
-workspace = lsqr_workspace(Φ2, Y) # Assumes a helper function `lsqr_workspace`
+A_spline = zero_block_diag([p])
+kc_spline = KrylovConstructor(Y, A_spline)
+workspace = LsqrWorkspace(kc_spline)
 lsqr!(workspace, Φ2, Y; history=true)
 A_spline = solution(workspace)
 stats = statistics(workspace)
