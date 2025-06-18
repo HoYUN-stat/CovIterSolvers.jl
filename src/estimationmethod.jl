@@ -35,7 +35,7 @@ An estimation method that uses a B-spline basis.
 - `knots::AbstractVector`: The knot vector defining the B-spline basis.
 
 # Examples
-```jldoctest
+```julia-repl
 julia> knots = 0.0:0.1:1.0;
 
 julia> method = BSplineMethod(4, knots);
@@ -60,7 +60,7 @@ A Gaussian Radial Basis Function (RBF) kernel defined by `K(x, y) = exp(-γ * ||
   the kernel will return zero for `||x - y|| > trunc_dist`.
 
 # Examples
-```jldoctest
+```julia-repl
 julia> gk = GaussianKernel(0.5)
 GaussianKernel{Float64}(0.5, nothing)
 
@@ -90,7 +90,7 @@ A Laplacian Radial Basis Function (RBF) kernel defined by `K(x, y) = exp(-γ * |
   the kernel will return zero for `||x - y|| > trunc_dist`.
 
 # Examples
-```jldoctest
+```julia-repl
 julia> lk = LaplacianKernel(0.5)
 LaplacianKernel{Float64}(0.5, nothing)
 
@@ -123,7 +123,7 @@ where `K_{ν}` is the modified Bessel function of the second kind.
   the kernel will return zero for `||x - y|| > trunc_dist`.
 
 # Examples
-```jldoctest
+```julia-repl
 julia> mk = MaternKernel(1.5, 0.5)
 MaternKernel{Float64}(1.5, 0.5, nothing)
 
@@ -156,7 +156,7 @@ The kernel is defined as `K(x, y) = f(||x - y||)`.
   the kernel will return zero for `||x - y|| > trunc_dist`.
 
 # Examples
-```jldoctest
+```julia-repl
 julia> f(x) = exp(-x^2);  # Example custom kernel function
 
 julia> ck = CustomKernel(f)

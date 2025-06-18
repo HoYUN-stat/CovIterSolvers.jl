@@ -8,9 +8,12 @@ DocMeta.setdocmeta!(CovIterSolvers, :DocTestSetup, quote
 makedocs(;
     modules=[CovIterSolvers],
     authors="Ho Yun <zrose0921@gmail.com>",
+    repo="github.com/HoYUN-stat/CovIterSolvers.jl/blob/{commit}/{path}#{line}",
     sitename="CovIterSolvers.jl",
-    format=Documenter.HTML(),
+    format=Documenter.HTML(; canonical="https://hoyun-stat.github.io/CovIterSolvers.jl"),
     pages=[
         "Home" => "index.md"
     ]
 )
+
+deploydocs(; repo="github.com/HoYUN-stat/CovIterSolvers.jl")

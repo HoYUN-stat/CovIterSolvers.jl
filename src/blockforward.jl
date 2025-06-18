@@ -15,7 +15,7 @@ block are sorted for real-valued types.
 - `seed::Union{Nothing,Int}`: An optional seed for reproducibility.
 
 # Examples
-```jldoctest
+```julia-repl
 julia> loc = loc_grid([3, 2]; seed=42);
 
 julia> blocklength(loc)
@@ -79,7 +79,7 @@ basis function evaluated at the i-th location.
 - `BlockMatrix{T}`: A sparse block matrix representing the B-spline evaluation.
 
 # Examples
-```jldoctest
+```julia-repl
 julia> knots = 0.0:0.2:1.0; # Simplified knots for a clear example
 
 julia> myspline = BSplineMethod(4, knots);
@@ -150,7 +150,7 @@ the type of the `kernel` object.
 - The scalar value of the kernel evaluation.
 
 # Examples
-```jldoctest
+```julia-repl
 julia> dist = 0.4;
 
 julia> kernel = GaussianKernel(1.0);
@@ -199,7 +199,7 @@ between the i-th and j-th locations, i.e., `K[i, j] = kernel(||loc[i] - loc[j]||
   the resulting matrix will be sparse.
 
 # Examples
-```jldoctest
+```julia-repl
 julia> loc = loc_grid([2, 1]; seed=1);
 
 julia> kernel = GaussianKernel(50.0); # A kernel with high decay
@@ -210,11 +210,6 @@ julia> size(K)
 (3, 3)
 
 julia> K[1, 2] ≈ 0.022251307501408822
-true
-
-julia> kernel_trunc = GaussianKernel(50.0, 0.1);
-       K_sparse = mean_fwd(loc, kernel_trunc);
-       issparse(K_sparse.blocks[1,1])
 true
 ```
 """

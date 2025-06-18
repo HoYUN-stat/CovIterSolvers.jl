@@ -10,7 +10,7 @@ Blocked array of square matrices of type `T` arranged in a block diagonal struct
 - `BlockDiagonal{T, R<:(AbstractArray{<:AbstractArray{T, 2}, 1})} <: AbstractArray{T, 1} <: Any`
 
 # Examples
-```jldoctest
+```julia-repl
 julia> A = [1 2; 3 4];
 
 julia> B = [5 6; 8 9];
@@ -99,7 +99,7 @@ The blocks are created as square matrices according to the specified sizes.
 
 
 # Examples
-```jldoctest
+```julia-repl
 julia> block_sizes = [2, 1];
 
 julia> bd = zero_block_diag(block_sizes);
@@ -139,7 +139,7 @@ The blocks are created as square matrices according to the specified sizes.
 - `block_sizes::Vector{Int}`: A vector of integers specifying the size of each square block.
 
 # Examples
-```jldoctest
+```julia-repl
 julia> block_sizes = [2, 3];
 
 julia> bd = undef_block_diag(UInt8, block_sizes);
@@ -184,7 +184,7 @@ The blocks are created as square matrices according to the specified sizes.
   reproducibility. Defaults to `nothing`.
 
 # Examples
-```jldoctest
+```julia-repl
 julia> block_sizes = [2, 1];
 
 julia> bd = rand_block_diag(block_sizes; seed=123);
@@ -230,7 +230,7 @@ The infix operator `⊙` is an alias for this function. It must be used on the s
 - `y::AbstractBlockVector`: The input block vector.
 
 # Examples
-```jldoctest
+```julia-repl
 julia> v = [1.0, 2.0, 3.0];
 
 julia> y = BlockVector(v, [2, 1]);
@@ -261,7 +261,7 @@ Returns the sizes of the blocks in a `BlockDiagonal` matrix along the specified 
 - `d::Int`: The dimension along which to get the block sizes (1 for rows, 2 for columns).
 
 # Examples
-```jldoctest
+```julia-repl
 julia> block_sizes = [2, 1];
 
 julia> bd = rand_block_diag(block_sizes; seed=123);

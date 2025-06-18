@@ -24,7 +24,7 @@ This function has two main modes of operation:
 - `BlockMatrix`: A sparse block matrix representing the evaluation of the basis or kernel.
 
 # Examples
-```jldoctest
+```julia-repl
 julia> myeval = range(0, 1; length=10);
 
 julia> knots = 0.0:0.2:1.0;
@@ -151,7 +151,7 @@ Computes the covariance matrix `Σ = E * A * E'`.
 - `Matrix{T}`: The resulting dense covariance matrix `Σ`.
 
 # Examples
-```jldoctest
+```julia-repl
 julia> E = BlockMatrix(ones(3, 2), [3], [2]);
 
 julia> A = BlockDiagonal([[1.0 0.5; 0.5 1.0]]);

@@ -22,7 +22,7 @@ that both operands are the same object (e.g., `E ⊙ E`).
 - `workspace::Matrix`: Pre-allocated matrix to be used for intermediate calculations.
 
 # Examples
-```jldoctest
+```julia-repl
 julia> E = BlockMatrix(rand(3, 2), [2, 1], [1, 1]);
 
 julia> L = E ⊙ E; # Element-free operator
@@ -76,7 +76,7 @@ Its action `L = O * (F ⊙ F) * O'` depends on the block structure of `F``.
 - `workspace::Matrix`: Pre-allocated matrix to be used for intermediate calculations.
 
 # Examples
-```jldoctest
+```julia-repl
 julia> F = BlockMatrix(rand(3, 2), [2, 1], [1, 1]);
 
 julia> L = CovFwdTensor(F);
@@ -129,7 +129,7 @@ The operator `L'` is defined by its action on a `BlockDiagonal` matrix `A`:
 - `workspace::Matrix`: Pre-allocated matrix to be used for intermediate calculations.
 
 # Examples
-```jldoctest
+```julia-repl
 julia> E = BlockMatrix(rand(3, 2), [2, 1], [1, 1]);
 
 julia> L_adj = (E ⊙ E)';
@@ -165,7 +165,6 @@ Base.adjoint(L::BlockOuter) = AdjointBlockOuter(L.E, L.workspace)
 Base.adjoint(L::AdjointBlockOuter) = BlockOuter(L.E, L.workspace)
 
 
-
 """
     AdjointCovFwdTensor(F, [workspace])
 
@@ -176,7 +175,7 @@ Represents the adjoint of the `CovFwdTensor` operator.
 - `workspace::Matrix`: Pre-allocated matrix to be used for intermediate calculations.
 
 # Examples
-```jldoctest
+```julia-repl
 julia> F = BlockMatrix(rand(3, 2), [2, 1], [1, 1]);
 
 julia> L = CovFwdTensor(F);

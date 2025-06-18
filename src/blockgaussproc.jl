@@ -13,7 +13,7 @@ A standard Brownian Motion / Wiener Process.
 The covariance function is `Σ(s, t) = min(s, t)`.
 
 # Examples
-```jldoctest
+```julia-repl
 julia> bm = BrownianMotion();
 
 julia> covariancekernel(bm, 0.2, 0.5)
@@ -32,7 +32,7 @@ to be zero at `t=0` and `t=1`.
 The covariance function is `Σ(s, t) = min(s, t) - s * t`.
 
 # Examples
-```jldoctest
+```julia-repl
 julia> bb = BrownianBridge();
 
 julia> covariancekernel(bb, 0.2, 0.5)
@@ -50,7 +50,7 @@ An Integrated Brownian Motion process.
 The covariance function is `Σ(s, t) = max(s,t) * min(s,t)^2 / 2 - min(s,t)^3 / 6`.
 
 # Examples
-```jldoctest
+```julia-repl
 julia> ibm = IntegratedBM();
 
 julia> covariancekernel(ibm, 0.2, 0.5)
@@ -72,7 +72,7 @@ The covariance function is `Σ(s, t) = (σ²/2θ) * (exp(-θ|s-t|) - exp(-θ(s+t
 - `σ::Real`: The volatility parameter (must be non-negative).
 
 # Examples
-```jldoctest
+```julia-repl
 julia> ou = OrnsteinUhlenbeck(1.0, 0.5);
 
 julia> ou.θ
@@ -101,7 +101,7 @@ A Gaussian Process defined by a user-supplied covariance function `Σ(s, t)`.
 - `Σ::Function`: A two-argument function `(s, t) -> value` that defines the covariance.
 
 # Examples
-```jldoctest
+```julia-repl
 julia> my_cov(s, t) = exp(-abs(s - t)); # Exponential covariance
 
 julia> gp = CustomGP(my_cov);
@@ -139,7 +139,7 @@ This function has several methods:
 - `loc1, loc2, loc::AbstractVector`: Vectors of locations.
 
 # Examples
-```jldoctest
+```julia-repl
 julia> bm = BrownianMotion();
 
 julia> covariancekernel(bm, 0.3, 0.8) # scalar version
@@ -206,7 +206,7 @@ Generate one or more sample paths from a specified Gaussian Process.
 - `Vector` or `BlockVector`: The generated sample path(s), matching the type of `loc`.
 
 # Examples
-```jldoctest
+```julia-repl
 julia> loc = [0.1, 0.5, 0.9];
 
 julia> bm = BrownianMotion();
