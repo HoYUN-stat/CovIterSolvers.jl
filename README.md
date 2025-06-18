@@ -2,7 +2,6 @@
 
 [![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://HoYUN-stat.github.io/CovIterSolvers.jl/stable)
 [![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://HoYUN-stat.github.io/CovIterSolvers.jl/dev)
-[![Build Status](https://github.com/HoYUN-stat/CovIterSolvers.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/HoYUN-stat/CovIterSolvers.jl/actions/workflows/CI.yml)
 
 A Julia package for efficient covariance smoothing and functional principal component analysis (FPCA) using Krylov subspace methods.
 
