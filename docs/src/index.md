@@ -8,7 +8,3 @@ The following pages list all the functions and types available in the package.
 
 ```@index
 ```
-
-```@autodocs
-Modules = [CovIterSolvers]
-```

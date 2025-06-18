@@ -21,9 +21,9 @@ include("conjlanczos.jl")
 include("blockfpca.jl")
 
 export BlockDiagonal, zero_block_diag, undef_block_diag, rand_block_diag, block_outer, ⊙, blocksizes
-export AbstractBlockTensor, CovFwdTensor, AdjointCovFwdTensor
+export AbstractBlockTensor, BlockOuter, AdjointBlockOuter, CovFwdTensor, AdjointCovFwdTensor
 export AbstractEstimateMethod, BSplineMethod, RBFKernelMethod, GaussianKernel, LaplacianKernel, MaternKernel, CustomKernel
-export loc_grid, mean_fwd
+export loc_grid, compute_kernel, mean_fwd
 export AbstractBlockGP, BrownianMotion, BrownianBridge, IntegratedBM, OrnsteinUhlenbeck, CustomGP, covariancekernel, sample_gp
 export eval_fwd, eval_covariance
 export conj_lanczos

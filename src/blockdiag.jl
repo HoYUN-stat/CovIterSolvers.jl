@@ -246,6 +246,17 @@ function block_outer(y::AbstractBlockVector{T})::BlockDiagonal{T} where {T}
     return BlockDiagonal(blocks)
 end
 
+
+"""
+    y ⊙ y
+
+Computes the block-wise outer product of a `BlockVector`, returning a `BlockDiagonal` matrix.
+
+The infix operator `⊙` is an alias for `block_outer(y)`, and must be used on the same object (e.g., `y ⊙ y`).
+
+See also [`block_outer`](@ref).
+```
+"""
 function ⊙(y1::AbstractBlockVector{T}, y2::AbstractBlockVector{T}) where {T}
     @assert y1 === y2 "The ⊙ operator is only defined for the same block vector, e.g., y ⊙ y."
     return block_outer(y1)

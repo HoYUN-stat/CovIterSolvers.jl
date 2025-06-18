@@ -12,7 +12,13 @@ makedocs(;
     sitename="CovIterSolvers.jl",
     format=Documenter.HTML(; canonical="https://HoYUN-stat.github.io/CovIterSolvers.jl"),
     pages=[
-        "Home" => "index.md"
+        "Home" => "index.md",
+        "API" => [
+            "Block Structures" => "api/structures.md",
+            "Gaussian Processes" => "api/gaussian_processes.md",
+            "Estimation Methods" => "api/estimation.md",
+            "Solvers & FPCA" => "api/solvers.md",
+        ]
     ]
 )
 

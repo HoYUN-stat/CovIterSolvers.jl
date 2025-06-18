@@ -1,3 +1,10 @@
+"""
+    AbstractBlockTensor{T}
+
+Element-free tensor type for block-wise operations.
+
+See also [`BlockOuter`](@ref), [`CovFwdTensor`](@ref), [`AdjointBlockOuter`](@ref), and [`AdjointCovFwdTensor`](@ref).
+"""
 abstract type AbstractBlockTensor{T} end
 
 
@@ -57,7 +64,14 @@ Base.eltype(::Type{<:BlockOuter{T}}) where {T} = T
 Base.size(L::BlockOuter) = (sum(blocksizes(L.E, 1) .^ 2), sum(blocksizes(L.E, 2) .^ 2))
 Base.size(L::BlockOuter, d::Int) = size(L)[d]
 
+"""
+    E ⊙ E
 
+The infix operator `⊙` is an alias for the constructor `BlockOuter(E)`. It requires
+that both operands are the same object (e.g., `E ⊙ E`).
+
+See also [`BlockOuter`](@ref).
+"""
 function ⊙(E1::AbstractBlockMatrix, E2::AbstractBlockMatrix)
     @assert E1 === E2 "The ⊙ operator is only defined for the same matrix, e.g., F ⊙ F."
     return BlockOuter(E1)
