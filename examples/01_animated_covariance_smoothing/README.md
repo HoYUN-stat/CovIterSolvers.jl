@@ -15,10 +15,10 @@ It visualizes the convergence of the solution over each iteration of the `lsqr` 
     ```julia
     include("run_animation.jl")
     ```
-This will generate the output video `animated_smoothing.mp4` in this directory.
+This will generate the output video `animated_smoothing.gif` in this directory.
 
 ## Result
 
 Here is the final animation showing the true covariance matrix (left) and the smoothed estimate converging over the solver iterations (right).
 
-![Covariance Smoothing Animation](animated_smoothing.mp4)
+![Covariance Smoothing Animation](animated_smoothing.gif)

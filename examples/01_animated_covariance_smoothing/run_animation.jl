@@ -120,11 +120,11 @@ text!(ax2,
 )
 
 # Record the animation, updating the iteration observable on each frame
-framerate = 5
+framerate = 10
+compression_level = 30
 
 # --- MODIFICATION: Define a clean, fixed output path ---
-# @__DIR__ ensures the video saves in the same folder as this script.
-output_filename = joinpath(@__DIR__, "animated_smoothing.mp4")
+output_filename = joinpath(@__DIR__, "animated_smoothing.gif")
 
 record(fig, output_filename, 1:n_iterations; framerate=framerate) do i
     iter_obs[] = i # This update triggers the title and heatmap to change for each frame
