@@ -94,3 +94,5 @@ E_spline = eval_fwd(myeval, myspline)
 
 println("Smoothed covariance matrix of size $(size(Σ_spline)) computed successfully.")
 ```
+
+To create the animated evolution of the estimated covariance over iterations, see `README.md` in the `examples/01_animated_covariance_smoothing/`.
