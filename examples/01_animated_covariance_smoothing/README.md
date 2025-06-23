@@ -22,3 +22,7 @@ This will generate the output video `animated_smoothing.gif` in this directory.
 Here is the final animation showing the true covariance matrix (left) and the smoothed estimate converging over the solver iterations (right).
 
 ![Covariance Smoothing Animation](animated_smoothing.gif)
+
+The animation demonstrates that full iteration is often unnecessary. 
+
+In the next example `02_lcurve`, we illustrate how to draw the L-curve to perform early termination.
