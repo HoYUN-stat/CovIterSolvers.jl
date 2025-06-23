@@ -1,8 +1,9 @@
 # Example: Custom GP and L-Curve for Optimal Regularization
 
 This example demonstrates how to generate a synthetic dataset from a `CustomGP` with covariance:
+
 $$
-\Sigma(s, t) = 2 \sin\left(\frac{\pi s}{2}\right) \sin\left(\frac{\pi t}{2}\right),
+\Sigma(s, t) = 2 \sin\left(\frac{\pi s}{2}\right) \sin\left(\frac{\pi t}{2}\right), \quad 0 \le s, t \le 1,
 $$
 
 and use the iterative LSQR solver. Then, we find an optimal regularization point (i.e., iteration count) by plotting the "L-curve".
