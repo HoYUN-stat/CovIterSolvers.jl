@@ -111,23 +111,22 @@ Colorbar(fig[1, 3], p_anim)
 
 # --- Add the animated text to the bottom-left of the right plot (ax2) ---
 text!(ax2,
-    0.05, 0.05,                   # Position: 5% from left, 5% from bottom
-    text=residual_text_obs,     # The observable string
-    align=(:left, :bottom),     # Anchor the text at its bottom-left
-    space=:relative,            # Use coordinates relative to the axis frame
-    fontsize=22,                # Choose a suitable font size
-    color=:white                # Choose a color with good contrast against the heatmap
+    0.05, 0.05,
+    text=residual_text_obs,
+    align=(:left, :bottom),
+    space=:relative,
+    fontsize=22,
+    color=:white
 )
 
 # Record the animation, updating the iteration observable on each frame
 framerate = 10
 compression_level = 30
 
-# --- MODIFICATION: Define a clean, fixed output path ---
 output_filename = joinpath(@__DIR__, "animated_smoothing.gif")
 
 record(fig, output_filename, 1:n_iterations; framerate=framerate) do i
-    iter_obs[] = i # This update triggers the title and heatmap to change for each frame
+    iter_obs[] = i
 end
 
 println("\nAnimation saved to $output_filename")

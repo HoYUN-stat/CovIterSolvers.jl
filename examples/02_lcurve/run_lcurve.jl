@@ -24,8 +24,6 @@ loc = loc_grid(BS, seed=345);
 # Generate Custom Gaussian process
 my_cov(s, t) = 2 * sin(π * s / 2) * sin(π * t / 2)
 process = CustomGP(my_cov)
-
-# process = IntegratedBM()
 y = sample_gp(process, loc; jitter=jitter, seed=42);
 Y = y ⊙ y;
 
@@ -63,7 +61,6 @@ end
 kc_spline = KrylovConstructor(Y, A_spline);
 workspace_spline = LsqrWorkspace(kc_spline);
 
-# lsqr!(workspace, Φ2, Y; λ = 0.3, history=true, verbose=1)
 lsqr!(workspace_spline, Φ2, Y; history=true, callback=store_sol_norm_callback, itmax=50);
 A_spline = solution(workspace_spline)
 stats_spline = statistics(workspace_spline)
